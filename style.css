@@ -1,0 +1,122 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --dkClr: #181818;
+  --liClr: whitesmoke;
+  --accClr: rgb(38, 23, 3);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--dkClr);
+  color: var(--liClr);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+header,
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+}
+
+#gameCanvas {
+  border: 1px solid red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  z-index: 1;
+}
+
+.gameUI {
+  width: 100%;
+  height: 100%;
+  background-color: var(--accClr);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden; /* Ensure text doesn't overflow the container */
+}
+
+#gameStartDiv h1,
+#gameOver {
+  margin: 0;
+  font-size: 150px;
+  color: rgba(225, 225, 225, 0.01);
+  background-image: url("https://img.freepik.com/free-photo/beautifully-arranged-apples-shop_23-2150713426.jpg?t=st=1699002814~exp=1699006414~hmac=e6546d804cf6bf59c00f1b221a1175881b113fc4b695d66a424d753d7634f563&w=360");
+  -webkit-background-clip: text;
+  background-clip: text; /* Standard property for better compatibility */
+  animation: animate 15s ease-in-out infinite;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    background-position: left top;
+  }
+  25% {
+    background-position: right bottom;
+  }
+  50% {
+    background-position: left bottom;
+  }
+  75% {
+    background-position: right top;
+  }
+}
+
+.gameUI * {
+  text-align: center;
+  margin-top: 5px;
+}
+
+#gameStartDiv {
+  display: flex;
+}
+
+#gameEndDiv {
+  display: none;
+}
+
+#gameStartBtn {
+  display: inline-block;
+  width: 100px;
+  padding: 8px 15px;
+  margin: 20px 0;
+  text-align: center;
+  font-family: inherit;
+  border-radius: 10px;
+}
+
+#gameStartBtn p {
+  margin-top: 0;
+}
+
+#gameStartBtn:hover {
+  background-color: var(--dkClr);
+  border: 0.5px solid var(--liClr);
+  color: var(--liClr);
+  cursor: pointer;
+}
